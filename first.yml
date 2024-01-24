@@ -1,0 +1,14 @@
+# ansible all -m user -a 'user=abc ui=100' -b
+
+- name: my first playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: addinguser
+      user:
+        name: abctestuser
+        uid: 2999
+    - name: createingdirectory
+      file:
+        path: /allianzansible
+        state: directory
